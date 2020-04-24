@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-@Component
 public class Employee {
 	
 	public Employee() {
@@ -18,16 +17,12 @@ public class Employee {
 		this.age=age;
 	}
 	
-	@Value("${empId}")
 	private int employeeId;
 	
-	@Value("${empName}")
 	private String employeeName;
 	
-	@Value("${empSalary}")
 	private double salary;
 	
-	@Value("${empAge}")
 	private int age;
 
 	
