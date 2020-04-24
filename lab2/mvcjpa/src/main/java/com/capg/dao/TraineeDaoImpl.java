@@ -47,17 +47,7 @@ public class TraineeDaoImpl implements ITraineeDao{
 	}
 
 
-    @Override
-    public boolean credentials(int id, String password) {
-        if (password == null || password.isEmpty()) {
-            return false;
-        }
-        Trainee trainee = admin.get(id);
-        if (trainee == null) {
-            return false;
-        }
-        return trainee.getPassword().equals(password);
-    }
+
 
   
 }

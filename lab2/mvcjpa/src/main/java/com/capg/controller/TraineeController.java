@@ -1,5 +1,6 @@
 package com.capg.controller;
 
+import com.capg.entities.Admin;
 import com.capg.entities.Trainee;
 import com.capg.service.ITraineeService;
 import com.capg.session.SessionDetails;
@@ -7,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import java.util.*;
+
 
 @Controller
 public class TraineeController {
@@ -25,11 +26,25 @@ public class TraineeController {
     @Autowired
     private SessionDetails sessionDetails;
 
+    @Autowired
+    private Admin admin;
+
+    public boolean credentials(int id, String password) {
+
+        if (password == null || password.isEmpty() || id < 0) {
+            return false;
+        }
+        if(id==admin.getAdminId() && password.equals(admin.getAdminPassword())) {
+            return true;
+        }
+        return false;
+    }
+
 
 
     @GetMapping("/processlogin")
     public ModelAndView login(@RequestParam("id")int id , @RequestParam("password") String password){
-        boolean correct=traineeService.credentials(id,password);
+        boolean correct= credentials(id,password);
         if(!correct){
          return new ModelAndView("/login");
         }

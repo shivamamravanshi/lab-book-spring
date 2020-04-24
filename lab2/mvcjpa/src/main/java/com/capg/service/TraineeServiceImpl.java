@@ -44,11 +44,7 @@ public class TraineeServiceImpl implements ITraineeService{
 		return t;
 	}
 
-	@Override
-	public boolean credentials(int id, String password) {
-		boolean credential = traineeDao.credentials(id, password);
-		return credential;
-	}
+
 
     
 }
