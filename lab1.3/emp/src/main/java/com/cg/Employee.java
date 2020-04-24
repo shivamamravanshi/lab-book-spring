@@ -11,6 +11,12 @@ public class Employee {
 		
 	}
 
+	public Employee(int employeeId, String employeeName, double salary, int age){
+		this.employeeId=employeeId;
+		this.employeeName=employeeName;
+		this.salary=salary;
+		this.age=age;
+	}
 	
 	@Value("${empId}")
 	private int employeeId;

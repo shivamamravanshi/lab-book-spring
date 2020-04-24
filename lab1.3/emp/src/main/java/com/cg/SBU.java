@@ -30,7 +30,7 @@ public class SBU {
 		return empList;
 	}
 
-	@Autowired
+
 	public void setEmpList(List<Employee> empList) {
 		this.empList = empList;
 	}
